@@ -18,7 +18,7 @@ struct GPIOException
 		: m_what { "GPIO " + what }
 	{ }
 
-	const char* what() const noexcept override
+	const char* what() const noexcept( true ) override
 	{
 		return m_what.c_str();
 	}
