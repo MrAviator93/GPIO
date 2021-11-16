@@ -1,5 +1,5 @@
 # GPIO
-TBW
+General Purpose Input Output library.
 
 # Requirements
 Compiler that supports C++ 17.
