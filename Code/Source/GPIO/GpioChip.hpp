@@ -32,7 +32,7 @@ public:
 	explicit CGPIOChip( const std::string& chipName ) noexcept( false );
 
 	/// Default dtor, closes the gpio chip.
-	~CGPIOChip();
+	virtual ~CGPIOChip();
 
 	/// A const accessor to the chip name. GPIO chip name as represented in the kernel.
 	auto& getChipName() const
@@ -105,6 +105,7 @@ private:
 	// TODO
 
 private:
+	// This class is non-copyable and non-movable
 	CGPIOChip( const CGPIOChip& ) = delete;
 	CGPIOChip( CGPIOChip&& ) = delete;
 	CGPIOChip operator=( const CGPIOChip& ) = delete;
