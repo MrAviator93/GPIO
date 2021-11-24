@@ -2,10 +2,7 @@
 #include "GpioChip.hpp"
 
 // 3rd Party
-extern "C" {
-#include <gpiod.h> // Instead do forward declarations in hpp
-}
-
+#include <gpiod.hpp>
 #include <fmt/format.h>
 
 namespace GPIO
@@ -78,7 +75,7 @@ void CGPIOChip::setPinMode( std::uint8_t pinNo, PinMode mode ) noexcept( false )
 	if( it == m_configuredPins.end() )
 	{
 		// We simply add a new pin line to the map
-		m_configuredPins.insert( { pinNo, CGPIOPin { m_chip, mode } } );
+		// m_configuredPins.insert( { pinNo, CGPIOPin { m_chip, mode } } );
 	}
 	else
 	{

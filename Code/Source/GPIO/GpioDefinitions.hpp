@@ -12,7 +12,7 @@ struct gpiod_line;
 namespace GPIO
 {
 
-struct GPIOException
+struct GPIOException : public std::exception
 {
 	explicit GPIOException( const std::string& what )
 		: m_what { "GPIO " + what }
@@ -33,7 +33,7 @@ struct ChipInfo
 	std::string chip {}; //!< GPIO chip name as represented in the kernel.
 	std::string chip_label {}; //!< GPIO chip label as represented in the kernel.
 	std::uint32_t num_lines {}; //!< The number of GPIO lines exposed by this chip.
-	gpiod_chip* chip { nullptr }; //!< A pointer, that points to libgpiod chip object.
+	// gpiod_chip* chip { nullptr }; //!< A pointer, that points to libgpiod chip object.
 };
 
 enum class PinMode : std::uint8_t
