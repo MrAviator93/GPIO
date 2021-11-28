@@ -91,7 +91,7 @@ public:
 	}
 
 	/// TBW
-	std::uint8_t read( std::uint8_t pinNo );
+	PinState read( std::uint8_t pinNo );
 
 	/// TBW
 	template < typename... Args >

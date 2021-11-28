@@ -24,7 +24,7 @@ struct GPIOException : public std::exception
 	}
 
 private:
-	std::string m_what {}; //!< An exception message
+	const std::string m_what {}; //!< An exception message
 };
 
 /// TBW
@@ -36,12 +36,14 @@ struct ChipInfo
 	// gpiod_chip* chip { nullptr }; //!< A pointer, that points to libgpiod chip object.
 };
 
+/// TBW
 enum class PinMode : std::uint8_t
 {
 	OUTPUT = 0,
 	INPUT = 1
 };
 
+/// TBW
 enum class PinState : std::uint8_t
 {
 	LOW = 0,

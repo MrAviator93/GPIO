@@ -8,7 +8,14 @@ set( GPIO_COMMON_VERSION "${1.0.0}" )
 set( GPIO_LIB_NAME_OUTPUT ${GPIO_LIB_NAME_BASE} )
 
 add_library( ${GPIO_LIB_NAME_OUTPUT} STATIC
+
+    # GPIO
+    GpioPin.cpp
     GpioChip.cpp
+
+    # Microcontrollers
+    BBBChip.cpp
+    RPI4Chip.cpp
 )
    
 add_library( GPIO::${GPIO_LIB_NAME_BASE} ALIAS ${GPIO_LIB_NAME_OUTPUT} )

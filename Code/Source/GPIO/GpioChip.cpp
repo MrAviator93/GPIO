@@ -58,7 +58,7 @@ void CGPIOChip::write( std::uint8_t pinNo, PinState state )
 	it->second.write( state );
 }
 
-std::uint8_t CGPIOChip::read( std::uint8_t pinNo )
+PinState CGPIOChip::read( std::uint8_t pinNo )
 {
 	auto it = m_configuredPins.find( pinNo );
 	if( it == m_configuredPins.end() )

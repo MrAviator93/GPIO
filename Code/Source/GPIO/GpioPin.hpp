@@ -13,79 +13,28 @@ class CGPIOPin
 {
 public:
 	/// Constructor for the use when we set-up/configure a bulk of pins at once
-	explicit CGPIOPin( gpiod_line* pinLine, PinMode mode )
+	explicit CGPIOPin( gpiod_line* pinLine, PinMode mode ) noexcept( true )
 		: m_pinLine { pinLine }
 		, m_pinMode { mode }
 	{ }
 
-	explicit CGPIOPin( gpiod_chip* chip, std::uint32_t offset, PinMode mode ) noexcept( false )
-		: m_pinMode { mode }
-	{
-		// m_pinLine = gpiod_chip_get_line( chip, offset );
-		// if( !m_pinLine )
-		// {
-		// 	throw GPIOException { "Failed to retrieve the GPIO pin at offset: " + std::to_string( offset ) };
-		// }
-
-		// int rslt {};
-		// if( mode == PinMode::OUTPUT )
-		// {
-		// 	rslt = gpiod_line_request_output( m_pinLine, "gpiocd", 0 );
-		// }
-
-		// if( mode == PinMode::INPUT )
-		// {
-		// 	rslt = gpiod_line_request_input( m_pinLine, "gpiocd" );
-		// }
-
-		// if( rslt < 0 )
-		// {
-		// 	throw GPIOException( fmt::format( "Unable to configure pinline at offset: ( {} )", offset ) );
-		// }
-	}
+	/// TBW
+	explicit CGPIOPin( gpiod_chip* chip, std::uint32_t offset, PinMode mode ) noexcept( false );
 
 	/// Default dtor, releases the pin line
-	~CGPIOPin()
-	{
-		if( m_pinLine )
-		{
-			// gpiod_line_release( m_pinLine );
-		}
-	}
+	~CGPIOPin();
 
-	void write( PinState state )
-	{
-		// TODO
-	}
+	/// TBW
+	void write( PinState state );
 
-	std::uint8_t read()
-	{
-		// TODO
-		return 0;
-	}
+	/// TBW
+	PinState read();
 
-	void setPinMode( PinMode mode )
-	{
-		// int rslt {};
-		// if( mode == PinMode::OUTPUT )
-		// {
-		// 	rslt = gpiod_line_request_output( pin, "gpiocd", 0 );
-		// }
-
-		// if( mode == PinMode::INPUT )
-		// {
-		// 	rslt = gpiod_line_request_input( pin, "gpiocd" );
-		// }
-
-		// if( rslt < 0 )
-		// {
-		// 	throw GPIOException( fmt::format( "Unable to configure pin: ( {} )", pinNo ) );
-		// }
-	}
+	void setPinMode( PinMode mode ) noexcept( false );
 
 private:
-	gpiod_line* m_pinLine { nullptr };
-	PinMode m_pinMode {};
+	gpiod_line* m_pinLine { nullptr }; //!< TBW
+	PinMode m_pinMode {}; //!< TBW
 };
 
 } // namespace GPIO

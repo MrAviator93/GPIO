@@ -1,5 +1,5 @@
 
-#include "RP4Chip.hpp"
+#include "RPI4Chip.hpp"
 
 namespace GPIO
 {
